@@ -5,6 +5,7 @@ import logoDoctor from '../assets/images/doctor.jpg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
+import CardStyle from '../Styles/Card.modules.css'
 
 
 const Card = (props) => {
