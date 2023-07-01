@@ -29,7 +29,6 @@ const Detail = () => {
     <div>
     <div className="detail">
       <div className="detail-container">
-        <h1>{dentist.id}</h1>
         <img src={logoDoctor} alt="dentist-img" />
         <div className="right">
           <h2>{dentist.name}</h2>

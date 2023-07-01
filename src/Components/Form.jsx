@@ -39,7 +39,6 @@ const Form = () => {
         <input
           className="form-content"
           type="text"
-          placeholder="Don Perez del Demonio III"
           onChange={(e) => {
             setContactInfo((prevState) => ({
               ...prevState,
@@ -52,7 +51,6 @@ const Form = () => {
         <input
           className="form-content"
           type="text"
-          placeholder="example@example.com"
           onChange={(e) => {
             setContactInfo((prevState) => ({
               ...prevState,
