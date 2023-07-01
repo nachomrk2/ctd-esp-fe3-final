@@ -54,7 +54,7 @@ const Card = (props) => {
 
         <Link className="col" to={`detail/${props.dentist.id}`} id="detail-link">
         Ir al detalle
-      </Link>
+        </Link>
 
       {!isFavPage ? (
         <button
