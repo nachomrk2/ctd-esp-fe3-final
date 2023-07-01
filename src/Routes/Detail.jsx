@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from "axios";
 import { useContextGlobal } from '../Components/utils/global.context';
+import logoDoctor from '../assets/images/doctor.jpg'
 
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
@@ -12,24 +13,33 @@ const Detail = () => {
 
   const {state, dispatch} = useContextGlobal()
   const {id}= useParams()
-  const url= 'https://jsonplaceholder.typicode.com/users/' + id
 
+  const [dentist, setDentist] = useState({})
+
+  const fetchDentistByID = () => {
+    axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+    .then((res) => {setDentist(res.data)});
+  };
 
   useEffect(() => {
-    axios(url)
-    .then(res => dispatch({type:'GET_DENTIST', payload: res.data}))
-  }, [])
+    fetchDentistByID();
+  }, []);
 
   return (
-    <>
-      <h1>Detail Dentist id </h1>
-      {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
-      {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-      {state.dentist.name}
-      {state.dentist.email}
-      {state.dentist.website}
-      {state.dentist.phone}
-    </>
+    <div>
+    <div className="detail">
+      <div className="detail-container">
+        <h1>{dentist.id}</h1>
+        <img src={logoDoctor} alt="dentist-img" />
+        <div className="right">
+          <h2>{dentist.name}</h2>
+          <h3>{dentist.username}</h3>
+          <p>{dentist.email}</p>
+          <p>{dentist.phone}</p>
+        </div>
+      </div>
+    </div>
+  </div>
   )
 }
 
